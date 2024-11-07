@@ -1,6 +1,15 @@
 from fastapi import FastAPI
 
-app = FastAPI()
+def create_app():
+
+    app = FastAPI()
+
+    #Inicialização db/tortoise
+    configure_db(app)
+
+    return app
+app = create_app()
+
 
 @app.get('/')
 async def home():
